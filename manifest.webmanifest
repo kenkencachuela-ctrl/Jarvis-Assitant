@@ -1,0 +1,9 @@
+{
+  "name": "J.A.R.V.I.S. 2 Personal Assistant",
+  "short_name": "JARVIS 2",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050b13",
+  "theme_color": "#06101c",
+  "description": "Voice-enabled personal assistant web app"
+}

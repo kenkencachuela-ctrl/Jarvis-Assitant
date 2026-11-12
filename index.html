@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06101c">
+<meta name="description" content="J.A.R.V.I.S. personal voice assistant">
+<title>J.A.R.V.I.S. 2</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-icon">J</div><div><strong>J.A.R.V.I.S.</strong><small>PERSONAL SYSTEM</small></div></div>
+    <button class="nav active" data-view="assistant"><span>◉</span> Assistant</button>
+    <button class="nav" data-view="dashboard"><span>▦</span> Dashboard</button>
+    <button class="nav" data-view="notes"><span>▤</span> Notes</button>
+    <div class="side-bottom"><div class="online"><i></i> SYSTEM ONLINE</div><small>VERSION 2.0 • WEB EDITION</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+      <div><div class="eyebrow">PERSONAL AI INTERFACE</div><h1 id="pageTitle">Assistant</h1></div>
+      <div class="top-right"><span class="connection"><i></i> READY</span><button class="settings" id="settingsBtn" aria-label="Settings">⚙</button></div>
+    </header>
+
+    <section class="view show" id="assistantView">
+      <div class="welcome">
+        <div class="orb-wrap"><div class="ring ring1"></div><div class="ring ring2"></div><div class="orb"><div class="core"></div></div><div class="orbit-dot"></div></div>
+        <div class="system-state" id="systemState">AWAITING YOUR COMMAND</div>
+        <h2>At your service.</h2>
+        <p class="welcome-copy">Your personal assistant interface is ready.</p>
+        <button class="listen-btn" id="listenBtn"><span>🎙</span><b>START VOICE MODE</b></button>
+        <p class="voice-hint" id="voiceHint">Tap to speak. Keep this screen open while using voice mode.</p>
+      </div>
+      <div class="chat-panel">
+        <div class="chat-head"><span>CONVERSATION</span><button id="clearChat">CLEAR</button></div>
+        <div class="messages" id="messages" aria-live="polite">
+          <div class="bubble assistant"><span>J.A.R.V.I.S.</span><p>Good day. Voice mode and command systems are ready. How may I assist?</p></div>
+        </div>
+        <form id="composer" class="composer">
+          <input id="messageInput" autocomplete="off" placeholder="Give me a command..." aria-label="Message JARVIS">
+          <button class="send" type="submit" aria-label="Send">➤</button>
+        </form>
+      </div>
+      <div class="quick-grid">
+        <button class="quick" data-command="What time is it?"><span>◷</span><b>Time</b><small>Current device time</small></button>
+        <button class="quick" data-command="Open YouTube"><span>▶</span><b>Open YouTube</b><small>Launch website</small></button>
+        <button class="quick" data-command="Search the web for artificial intelligence"><span>⌕</span><b>Web search</b><small>Find information</small></button>
+        <button class="quick" data-command="Show system status"><span>▦</span><b>System status</b><small>Check assistant</small></button>
+      </div>
+    </section>
+
+    <section class="view" id="dashboardView">
+      <div class="section-intro"><div class="eyebrow">LIVE OVERVIEW</div><h2>Command center</h2><p>Device and assistant information available to this web app.</p></div>
+      <div class="stats">
+        <article class="stat"><small>LOCAL TIME</small><strong id="dashTime">--:--</strong><span>From your device</span></article>
+        <article class="stat"><small>DATE</small><strong id="dashDate">---</strong><span>Local calendar</span></article>
+        <article class="stat"><small>VOICE ENGINE</small><strong id="voiceStatus">CHECKING</strong><span>Browser capability</span></article>
+        <article class="stat"><small>AI CONNECTION</small><strong id="aiStatus">NOT CONNECTED</strong><span>Secure backend required</span></article>
+      </div>
+      <div class="panel"><h3>AVAILABLE COMMANDS</h3><div class="command-list">
+        <div><b>“What time is it?”</b><span>Reads your device time</span></div>
+        <div><b>“Open YouTube”</b><span>Opens a website</span></div>
+        <div><b>“Search for [topic]”</b><span>Opens a web search</span></div>
+        <div><b>“Save a note [text]”</b><span>Saves a note in this browser</span></div>
+        <div><b>“System status”</b><span>Reports app capabilities</span></div>
+      </div></div>
+    </section>
+
+    <section class="view" id="notesView">
+      <div class="section-intro"><div class="eyebrow">PERSONAL MEMORY</div><h2>Quick notes</h2><p>Notes are saved locally in this browser on this device.</p></div>
+      <form id="noteForm" class="note-form"><input id="noteInput" placeholder="Write a note..." maxlength="500"><button type="submit">SAVE NOTE</button></form>
+      <div id="notesList" class="notes-list"></div>
+    </section>
+    <footer>J.A.R.V.I.S. 2.0 <span>•</span> PERSONAL ASSISTANT WEB EDITION</footer>
+  </main>
+</div>
+
+<dialog id="settingsDialog">
+  <form method="dialog">
+    <div class="dialog-top"><div><div class="eyebrow">PREFERENCES</div><h2>Assistant settings</h2></div><button class="x" aria-label="Close">×</button></div>
+    <label class="toggle-row"><span><b>Speak responses</b><small>Read assistant replies aloud</small></span><input type="checkbox" id="speakToggle" checked></label>
+    <label class="toggle-row"><span><b>Voice language</b><small>Speech recognition language</small></span><select id="languageSelect"><option value="en-US">English (US)</option><option value="en-PH">English (Philippines)</option><option value="fil-PH">Filipino</option></select></label>
+    <p class="notice">For real AI responses, configure a secure server endpoint at <code>/api/chat</code>. Do not put API keys in this app's JavaScript.</p>
+    <button class="done">DONE</button>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
